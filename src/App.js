@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import firebase from './services/firebase';
 
-import { getFirestore } from "firebase/firestore";
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,9 +24,6 @@ function App() {
     })
   }, [])
   console.log(user);
-
-  // const db = getFirestore(App);
-
 
 
 

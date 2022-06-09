@@ -6,17 +6,18 @@ export default function Main({user}) {
   return (
     <>
       <h2>메인 페이지</h2>
-      {(user)?
-        (
-        <>
-          <h1>Hello, <span></span>{user.displayName}</h1>
-          <img src={user.photoURL} alt="" />
-          <Button className="button signout" onClick={() => auth.signOut()}>Sign out</Button>
-        </>
-        )
-        :
-        ''
-      }
+      {(user)?<AuthMain user={user}/>:''}
+    </>
+  );
+}
+
+function AuthMain({user}) {
+  return (
+    <>
+      <h1>Hello, <span></span>{user.displayName}</h1>
+      <img src={user.photoURL} alt="" />
+      <br /><br /><br />
+      <Button className="button signout" onClick={() => auth.signOut()}>Sign out</Button>
     </>
   );
 }
