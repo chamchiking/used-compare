@@ -3,8 +3,7 @@ import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Login from './Login';
 
-export default function MainNavbar() {
-  
+export default function MainNavbar({user}) {
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -28,7 +27,9 @@ export default function MainNavbar() {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Login />
+            <Login
+              user={user}
+            />
           </Navbar.Collapse>
         </Container>
       </Navbar>

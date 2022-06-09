@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { auth } from '../../services/firebase';
+import SearchBar from './components/Searchbar';
 
 export default function Main({user}) {
+  const [keyword, setKeyword] = useState("");
+
   return (
     <>
       <h2>메인 페이지</h2>
+      <SearchBar
+        keyword={keyword}
+        setKeyword={setKeyword}
+      />
+
       {(user)?<AuthMain user={user}/>:''}
     </>
   );

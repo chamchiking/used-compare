@@ -30,7 +30,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <MainNavbar />
+        <MainNavbar
+          user={user}
+        />
         <Routes>
           <Route path="/" element={<Main user={user} />} />
           <Route path="/about" element={<About />} />
