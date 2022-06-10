@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function getConfig(sendCookies = false) {
+function getNaverConfig(sendCookies = false) {
   const axiosConfig = {
     baseURL: `${process.env.REACT_APP_NAVER_SHOPPING_BASE_URL}`,
     headers: {
@@ -16,13 +16,13 @@ function getConfig(sendCookies = false) {
   return axiosConfig;
 }
 
-function get(url, config) {
-  return axios.get(url, { ...getConfig(), ...config });
+function getNaver(url, config) {
+  return axios.get(url, { ...getNaverConfig(), ...config });
 }
 
 async function naverShoppingApi(query) {
   const addon = "shop.json?query=" + query;
-  const res = await get(addon);
+  const res = await getNaver(addon);
   return res.data;
 }
 

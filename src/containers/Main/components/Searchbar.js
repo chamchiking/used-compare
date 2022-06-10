@@ -1,7 +1,14 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
+import { naverShoppingApi } from "../../../services/naver/shopping";
 
-export default function SearchBar({ keyword, setKeyword }) {
+export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
+  const searchNaver = () => {
+    naverShoppingApi(keyword).then((data)=> {
+      setNaverItems(data.items);
+    });
+  };
+
   return (
     <Container>
       <div>검색창</div>
@@ -16,7 +23,7 @@ export default function SearchBar({ keyword, setKeyword }) {
             setKeyword(event.target.value);
           }}
         />
-        <Button variant="secondary" onClick={console.log(keyword)}>
+        <Button variant="secondary" onClick={searchNaver}>
           Submit
         </Button>
         <div className="vr" />

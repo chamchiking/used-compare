@@ -3,9 +3,13 @@ import { Button } from 'react-bootstrap';
 import { auth } from '../../services/firebase';
 import SearchBar from './components/Searchbar';
 import { naverShoppingApi } from '../../services/naver/shopping';
+import DefaultCards from './components/DefaultCards';
 
 export default function Main({user}) {
   const [keyword, setKeyword] = useState("");
+  const [naverItems, setNaverItems] = useState([]);
+
+
   useEffect(()=> {
     naverShoppingApi('프라다');
   }, [])
@@ -16,7 +20,14 @@ export default function Main({user}) {
       <SearchBar
         keyword={keyword}
         setKeyword={setKeyword}
+        setNaverItems={setNaverItems}
       />
+      {naverItems.map((e)=>(<DefaultCards
+        image={e.image}
+        title={e.title}
+        link={e.link}
+      />))}
+
 
       {(user)?<AuthMain user={user}/>:''}
     </>
