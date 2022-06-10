@@ -18,13 +18,22 @@ export default function DefaultCards({
   productType,
 }) {
   const lowestPrice = numberWithCommas(lprice)
+  const mallStyle={
+    position: "absolute",
+    width: "3em",
+  }
   return (
     <>
-      <Card style={{ width: "18rem" }} className="mb-3">
+      <Card style={{ width: "18rem" }} className="mb-3" key={productId}>
         <Card.Img variant="top" src={image} />
+        <Card.Img style={mallStyle} className="ml-2 mt-2" src="/naver.ico"></Card.Img>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
-          <Card.Body>최저가: {lowestPrice} 원</Card.Body>
+          <Card.Body>
+            브랜드: {brand}
+            <br />
+            최저가: {lowestPrice} 원
+          </Card.Body>
           <Button variant="primary" href={link}>상품 보러가기</Button>
         </Card.Body>
       </Card>
