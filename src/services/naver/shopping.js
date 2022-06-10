@@ -21,6 +21,7 @@ function getNaver(url, config) {
 }
 
 async function naverShoppingApi(query) {
+  
   const addon = "shop.json?query=" + query;
   const res = await getNaver(addon);
   return res.data;

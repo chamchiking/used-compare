@@ -9,10 +9,14 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
       console.log(data.items);
     });
   };
+  const searchBarStyle={
+    'position': 'sticky',
+    'top': '20px',
+    'z-index': '1',
+  }
 
   return (
-    <Container>
-      <div>검색창</div>
+    <Container style={searchBarStyle}>
       <Stack direction="horizontal" gap={3} className="mb-3">
         <Form.Control
           className="me-auto"

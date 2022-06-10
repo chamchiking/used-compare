@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SSRProvider from "react-bootstrap/SSRProvider";
 import "./App.css";
 import firebase from "./services/firebase";
 
@@ -20,16 +21,18 @@ function App() {
   console.log(user);
 
   return (
-    <div className="App">
-      <Router>
-        <MainNavbar user={user} />
-        <Routes>
-          <Route path="/" element={<Main user={user} />} />
-          <Route path="/about" element={<About user={user}/>} />
-          <Route path="/users" element={<Users user={user}/>} />
-        </Routes>
-      </Router>
-    </div>
+    <SSRProvider>
+      <div className="App">
+        <Router>
+          <MainNavbar user={user} />
+          <Routes>
+            <Route path="/" element={<Main user={user} />} />
+            <Route path="/about" element={<About user={user} />} />
+            <Route path="/users" element={<Users user={user} />} />
+          </Routes>
+        </Router>
+      </div>
+    </SSRProvider>
   );
 }
 
