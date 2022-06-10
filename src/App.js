@@ -25,8 +25,8 @@ function App() {
         <MainNavbar user={user} />
         <Routes>
           <Route path="/" element={<Main user={user} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/about" element={<About user={user}/>} />
+          <Route path="/users" element={<Users user={user}/>} />
         </Routes>
       </Router>
     </div>

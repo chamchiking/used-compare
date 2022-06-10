@@ -38,20 +38,6 @@ export default function Main({user}) {
         productId={e.productId}
         productType={e.productType}
       />))}
-
-
-      {(user)?<AuthMain user={user}/>:''}
-    </>
-  );
-}
-
-function AuthMain({user}) {
-  return (
-    <>
-      <h1>Hello, <span></span>{user.displayName}</h1>
-      <img src={user.photoURL} alt="" />
-      <br /><br /><br />
-      <Button className="button signout" onClick={() => auth.signOut()}>Sign out</Button>
     </>
   );
 }
