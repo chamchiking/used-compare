@@ -26,6 +26,7 @@ export default function Main({user}) {
         image={e.image}
         title={e.title}
         link={e.link}
+        lprice={e.lprice}
       />))}
 
 

@@ -6,6 +6,7 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
   const searchNaver = () => {
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
+      console.log(data.items);
     });
   };
 
