@@ -5,13 +5,13 @@ import ReactGA from "react-ga4";
 import history from "../utils/history";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxNkC0LdIkhuAIwVpuHBTApRKpzbZm75c",
-  authDomain: "product-compare-f7352.firebaseapp.com",
-  projectId: "product-compare-f7352",
-  storageBucket: "product-compare-f7352.appspot.com",
-  messagingSenderId: "396093170553",
-  appId: "1:396093170553:web:c6828a887c61c4ba9105a8",
-  measurementId: "G-G7T0F6JYJB",
+  apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_FIREBASE_AUTH_DOMAIN}`,
+  projectId: `${process.env.REACT_APP_FIREBASE_PROJECT_ID}`,
+  storageBucket: `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID}`,
+  appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`,
+  measurementId: `${process.env.REACT_APP_FIREBASE_MEASUREMENT_ID}`,
 };
 
 // Google Analytics setting
