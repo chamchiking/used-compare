@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { auth } from '../../services/firebase';
 import SearchBar from './components/Searchbar';
+import { naverShoppingApi } from '../../services/naver/shopping';
 
 export default function Main({user}) {
   const [keyword, setKeyword] = useState("");
+  useEffect(()=> {
+    naverShoppingApi('프라다');
+  }, [])
 
   return (
     <>
