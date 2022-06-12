@@ -1,6 +1,6 @@
 import React from "react";
-import { Stack, Form, Button, Container } from "react-bootstrap";
 import './component.css';
+import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
 export default function HistoryBox({ historyies }) {
