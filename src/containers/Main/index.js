@@ -52,7 +52,8 @@ export default function Main({ user }) {
 									productId={e.productId}
 									productType={e.productType}
 								/>
-							))}
+							))
+							}
 						</Container>
 					</Container>
 					

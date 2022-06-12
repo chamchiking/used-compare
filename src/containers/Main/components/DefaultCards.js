@@ -27,7 +27,7 @@ export default function DefaultCards({
     <>
       <Card className='item-card' key={productId}>
         <Card.Img variant="top" src={image} />
-        <Card.Img style={mallStyle} className="ml-2 mt-2" src="/naver.ico"></Card.Img>
+        {/* <Card.Img style={mallStyle} className="ml-2 mt-2" src="/naver.ico"></Card.Img> */}
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Body>

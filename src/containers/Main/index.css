@@ -17,7 +17,7 @@
 }
 .two-box{
     width:48%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .items-title{
@@ -39,6 +39,6 @@ h5{
 
 .item-card{
     display: inline-block;
-    border: 2px solid red;
-    width: 40%;
+    border: 2px solid rgb(248, 248, 248);
+    width: 250px;
 }
