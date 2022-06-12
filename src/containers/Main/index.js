@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Button, Container } from "react-bootstrap";
 import { auth } from "../../services/firebase";
 import SearchBar from "./components/Searchbar";
+import HistoryBox from "./components/HistoryBox";
 import { naverShoppingApi } from "../../services/naver/shopping";
 import DefaultCards from "./components/DefaultCards";
 
 export default function Main({ user }) {
+	const [historyies, setHistoryies] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [naverItems, setNaverItems] = useState([]);
 
@@ -24,6 +26,8 @@ export default function Main({ user }) {
         <SearchBar
           keyword={keyword}
           setKeyword={setKeyword}
+					historyies={historyies}
+					setHistoryies={setHistoryies}
           setNaverItems={setNaverItems}
         />
         {naverItems.map((e) => (
@@ -45,6 +49,7 @@ export default function Main({ user }) {
           />
         ))}
       </Container>
+			<HistoryBox historyies={historyies}/>
     </>
   );
 }

@@ -2,8 +2,9 @@ import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
-export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
+export default function SearchBar({ keyword, setKeyword, historyies, setHistoryies, setNaverItems }) {
   const searchNaver = () => {
+    setHistoryies([...historyies, keyword]);
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
       console.log(data.items);
