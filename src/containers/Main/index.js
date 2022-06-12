@@ -32,7 +32,16 @@ export default function Main({ user }) {
 				</Container>
 				
 				{historyies.length === 0?
-				<></>
+				<>
+					<div id='main-about-large'>
+						Don't miss the chance to buy a new product at a lower price.
+					</div>
+					<div id='main-about-small'>
+					We make it possible for you to consume more efficiently by efficiently comparing the market price of used products to the lowest price of new products on the market.
+					Our services prevent a sad case of buying a new product that is more expensive and the quality is similar to used one, without knowing that there is a good used product.
+					We hope you use our service to make smart consumption.
+					</div>
+				</>
 				:
 				<Container id='boxes'>
 					<Container id='left-box' className="two-box">

@@ -1,6 +1,7 @@
 
 #top-container{
-    background-color: rgb(41, 102, 214);
+    background-image: url("searchbar_img.png");
+    background-repeat: repeat;
     color: white;
     width: 100%;
 }
@@ -15,6 +16,20 @@
     margin-top: 10%;
 }
 
+#main-about-large{
+    font-size: 30px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    text-align: left;
+    padding-left: 5%;
+}
+#main-about-small{
+    font-size: 20px;
+    margin-top: 1%;
+    margin-bottom: 10%;
+    text-align: left;
+    padding-left: 5%;
+}
 
 
 #boxes{
