@@ -8,8 +8,8 @@ import { naverShoppingApi } from "../../services/naver/shopping";
 import DefaultCards from "./components/DefaultCards";
 
 export default function Main({ user }) {
-	const [historyies, setHistoryies] = useState([]);
   const [keyword, setKeyword] = useState("");
+	const [historyies, setHistoryies] = useState([]);
   const [naverItems, setNaverItems] = useState([]);
 
   useEffect(() => {
@@ -17,18 +17,23 @@ export default function Main({ user }) {
   }, []);
   return (
     <>
-      <Container>
-        <Container id="top-container">
-          <h2>메인 페이지</h2>
-        </Container>
-        <SearchBar
-          keyword={keyword}
-          setKeyword={setKeyword}
-					historyies={historyies}
-					setHistoryies={setHistoryies}
-          setNaverItems={setNaverItems}
-        />
+      <Container className='no-margin-padding'>
+				<Container id='top-container' className={historyies.length === 0? "top-container-home": "top-container-searched"}>
+					<Container id="title">
+						<h2>New & SecondHands</h2>
+					</Container>
+					<SearchBar
+						keyword={keyword}
+						setKeyword={setKeyword}
+						historyies={historyies}
+						setHistoryies={setHistoryies}
+						setNaverItems={setNaverItems}
+					/>
+				</Container>
 				
+				{historyies.length === 0?
+				<></>
+				:
 				<Container id='boxes'>
 					<Container id='left-box' className="two-box">
 						<Container id='new-items-title' className="items-title">
@@ -69,6 +74,7 @@ export default function Main({ user }) {
 					</Container>
 
 				</Container>
+				}
 			</Container>
 			<HistoryBox historyies={historyies}/>
     </>

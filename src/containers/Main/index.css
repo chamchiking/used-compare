@@ -1,7 +1,21 @@
 
 #top-container{
-    height: 100px;
+    background-color: rgb(41, 102, 214);
+    color: white;
+    width: 100%;
 }
+
+.top-container-searched{
+    padding:20px;
+}
+
+.top-container-home{
+    padding:50px;
+    padding-top: 150px;
+    margin-top: 10%;
+}
+
+
 
 #boxes{
     left:5%;    
@@ -31,6 +45,16 @@
 h5{
     width: fit-content;
 }
+h2{
+    margin-bottom: 20px;
+}
+
+.no-margin-padding{
+    margin:0;
+    padding:0;
+    /* border: 2px solid red; */
+}
+
 
 /* 위로는 기타 관련 */
 /* 아래로 아이템 정렬 관련 */
