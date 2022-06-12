@@ -33,14 +33,19 @@ export default function Main({ user }) {
 				
 				{historyies.length === 0?
 				<>
-					<div id='main-about-large'>
-						Don't miss the chance to buy a new product at a lower price.
+				<div id='main-about'>
+					<div>
+						<div id='main-about-large'>
+							Don't miss the chance to buy a new product at a lower price.
+						</div>
+						<div id='main-about-small'>
+						We make it possible for you to consume more efficiently by efficiently comparing the market price of used products to the lowest price of new products on the market.
+						Our services prevent a sad case of buying a new product that is more expensive and the quality is similar to used one, without knowing that there is a good used product.
+						We hope you use our service to make smart consumption.
+						</div>
 					</div>
-					<div id='main-about-small'>
-					We make it possible for you to consume more efficiently by efficiently comparing the market price of used products to the lowest price of new products on the market.
-					Our services prevent a sad case of buying a new product that is more expensive and the quality is similar to used one, without knowing that there is a good used product.
-					We hope you use our service to make smart consumption.
-					</div>
+						<img id='main_bottom_img' alt="Main page" src={require('./main_page_img.jpg')} />
+				</div>
 				</>
 				:
 				<Container id='boxes'>

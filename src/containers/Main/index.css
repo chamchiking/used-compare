@@ -16,6 +16,10 @@
     margin-top: 10%;
 }
 
+#main-about{
+    display: flex;
+    flex-direction: row;
+}
 #main-about-large{
     font-size: 30px;
     margin-top: 15%;
@@ -29,8 +33,12 @@
     margin-bottom: 10%;
     text-align: left;
     padding-left: 5%;
+    width:90%;
 }
+#main_bottom_img{
+    width: 30%;
 
+}
 
 #boxes{
     left:5%;    
