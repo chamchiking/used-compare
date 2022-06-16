@@ -13,6 +13,7 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
     'position': 'sticky',
     'top': '20px',
     'z-index': '1',
+    'padding': '2px 23px 2px 30px',
   }
 
   return (
@@ -20,7 +21,7 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
       <Stack direction="horizontal" gap={3} className="mb-3">
         <Form.Control
           className="me-auto"
-          placeholder="중고 검색창"
+          placeholder="상품을 입력하세요."
           aria-label="usedSearchbar"
           aria-describedby="basic-addon2"
           defaultValue={keyword}
@@ -29,10 +30,10 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
           }}
         />
         <Button variant="secondary" onClick={searchNaver}>
-          Submit
+          검색
         </Button>
         <div className="vr" />
-        <Button variant="outline-danger">Reset</Button>
+        <Button variant="outline-danger">내용 지우기</Button>
       </Stack>
     </Container>
   );
