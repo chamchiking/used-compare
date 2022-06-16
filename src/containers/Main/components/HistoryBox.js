@@ -3,11 +3,11 @@ import './component.css';
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
-export default function HistoryBox({ historyies }) {
+export default function HistoryBox({ histories }) {
 
-  const HistoryList = ({historyies}) => {
+  const HistoryList = ({histories}) => {
       return <>
-          {historyies.map(
+          {histories.map(
             his => <AHistory his={his}/>
           )}
         </>;
@@ -22,7 +22,7 @@ export default function HistoryBox({ historyies }) {
     <Container id='history-box'>
         <div id='history-title'>최근 검색기록</div>
         <div id='history-scroll-box'>
-          <HistoryList historyies={historyies} />
+          <HistoryList histories={histories} />
         </div>
     </Container>
   );

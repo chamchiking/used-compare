@@ -9,7 +9,7 @@ import DefaultCards from "./components/DefaultCards";
 
 export default function Main({ user }) {
   const [keyword, setKeyword] = useState("");
-	const [historyies, setHistoryies] = useState([]);
+	const [histories, setHistories] = useState([]);
   const [naverItems, setNaverItems] = useState([]);
 
   useEffect(() => {
@@ -18,20 +18,20 @@ export default function Main({ user }) {
   return (
     <>
       <Container className='no-margin-padding'>
-				<Container id='top-container' className={historyies.length === 0? "top-container-home": "top-container-searched"}>
+				<Container id='top-container' className={histories.length === 0? "top-container-home": "top-container-searched"}>
 					<Container id="title">
 						<h2>New & SecondHands</h2>
 					</Container>
 					<SearchBar
 						keyword={keyword}
 						setKeyword={setKeyword}
-						historyies={historyies}
-						setHistoryies={setHistoryies}
+						histories={histories}
+						setHistories={setHistories}
 						setNaverItems={setNaverItems}
 					/>
 				</Container>
 				
-				{historyies.length === 0?
+				{histories.length === 0?
 				<>
 				<div id='main-about'>
 					<div>
@@ -90,7 +90,7 @@ export default function Main({ user }) {
 				</Container>
 				}
 			</Container>
-			<HistoryBox historyies={historyies}/>
+			<HistoryBox histories={histories}/>
     </>
   );
 }
