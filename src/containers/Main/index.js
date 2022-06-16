@@ -45,6 +45,7 @@ export default function Main({ user }) {
             productType={e.productType}
           />
         ))}
+        </div>
       </Container>
       <Container fluid>
         <h3>새 상품과 중고 상품을 한눈에!</h3>
