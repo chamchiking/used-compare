@@ -24,7 +24,8 @@ export default function DefaultCards({
   }
   return (
     <>
-      <Card style={{ width: "18rem" }} className="mb-3" key={productId}>
+      <div className="d-flex justify-content-around mb-3">
+      <Card class="col-sm-4" style={{ width: "18rem" }} className="mb-3" key={productId}>
         <Card.Img variant="top" src={image} />
         <Card.Img style={mallStyle} className="ml-2 mt-2" src="/naver.ico"></Card.Img>
         <Card.Body>
@@ -37,6 +38,7 @@ export default function DefaultCards({
           <Button variant="primary" href={link}>상품 보러가기</Button>
         </Card.Body>
       </Card>
+      </div>
     </>
   );
 }
