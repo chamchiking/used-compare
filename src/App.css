@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+
+.btn.btn-secondary {
+  padding: 12px 28px ;
+  background-color: #557ff2;
+  border-color: #557ff2;
+  font-size: larger;
+  white-space:nowrap;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+.btn.btn-outline-danger {
+  padding: 12px 28px ;
+  background-color: gray;
+  border-color: gray;
+  color: white;
+  font-size: larger;
+  white-space:nowrap;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+.me-auto.form-control {
+  padding: 12px 28px ;
+  font-size: larger;
+}
+
+.btn.btn-primary {
+  background-color: black;
+  border-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+}
+
+.gradient__container1 {
+  background: -moz-radial-gradient(circle at 3% 25%, #003FFF00 0%, #B5CBFF 0%, #FFD35057 57%, #FFE7A0 100%);
+  background: -webkit-radial-gradient(circle at 3% 25%, #003FFF00 0%, #B5CBFF 0%, #FFD35057 57%, #FFE7A0 100%);
+  background: -o-radial-gradient(circle at 3% 25%, #003FFF00 0%, #B5CBFF 0%, #FFD35057 57%, #FFE7A0 100%);
+  background: -ms-radial-gradient(circle at 3% 25%, #003FFF00 0%, #B5CBFF 0%, #FFD35057 57%, #FFE7A0 100%);
+  background: radial-gradient(circle at 3% 25%, #003FFF00 0%, #B5CBFF 0%, #FFD35057 57%, #FFE7A0 100%);
+}
