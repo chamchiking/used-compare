@@ -17,9 +17,10 @@ export default function Main({ user }) {
   }
   return (
     <>
-      <Container>
+      <Container fluid>
+        <div className="gradient__container1">
         <Container style={topContainerStyle}>
-          <h2>메인 페이지</h2>
+          <h1 className="display-1">Shop Smart!</h1>
         </Container>
         <SearchBar
           keyword={keyword}
@@ -44,6 +45,9 @@ export default function Main({ user }) {
             productType={e.productType}
           />
         ))}
+      </Container>
+      <Container fluid>
+        <h3>새 상품과 중고 상품을 한눈에!</h3>
       </Container>
     </>
   );
