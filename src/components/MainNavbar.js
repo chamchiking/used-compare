@@ -6,9 +6,9 @@ import Login from './Login';
 export default function MainNavbar({user}) {
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="white" expand="lg">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/">중고 비교</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">더나와</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -16,7 +16,7 @@ export default function MainNavbar({user}) {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link as={Link} to="/about">About</Nav.Link>
+              <Nav.Link as={Link} to="/about">이용 가이드</Nav.Link>
               <Nav.Link as={Link} to="/users">Users</Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
