@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './index.css';
 import { Button, Container } from "react-bootstrap";
 import { auth } from "../../services/firebase";
+import crawl from "../../services/crawling";
 import SearchBar from "./components/Searchbar";
 import HistoryBox from "./components/HistoryBox";
 import { naverShoppingApi } from "../../services/naver/shopping";
@@ -14,6 +15,7 @@ export default function Main({ user }) {
 
   useEffect(() => {
     naverShoppingApi("프라다");
+    crawl();
   }, []);
   return (
     <>
