@@ -1,5 +1,6 @@
 import axios from "axios";
-// import * as cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
+// import * as puppeteer from "puppeteer";
 
 function getBungaeConfig(sendCookies = false) {
   const axiosConfig = {
@@ -19,11 +20,25 @@ function getBungae(url, config) {
 }
 
 async function bungaeShoppingApi(query) {
-  const addon = "?q=" + query;
-  const res = await getBungae(addon);
-  return res;
-  // const $ = cheerio.load(res);
-  // return cheerio.html($('.sc-jKVCRD bqiLXa'));
+
+
+  // const browser = await puppeteer.launch();
+  // const page = await browser.newPage();
+  // const url = 'https://m.bunjang.co.kr/search/products?q=' + query;
+  // await page.goto(url);
+  // const pageData = await page.evaluate(()=> {
+  //   return {
+  //     html: document.documentElement.innerHTML,
+  //   };
+  // });
+  // const $ = cheerio.load(pageData.html);
+  // await browser.close();
+  // let products = $('div.sc-Eieub').attr('class');
+  // console.log(products);
+  // products.each((index, element) => {
+
+  // });
+
 }
 
 export {bungaeShoppingApi}
