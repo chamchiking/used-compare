@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
-export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems }) {
+export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
   const searchNaver = () => {
     setHistories([keyword, ...histories]);
 
@@ -11,15 +11,9 @@ export default function SearchBar({ keyword, setKeyword, histories, setHistories
       console.log(data.items);
     });
 
-    fetch("api/data")
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            console.log(data);
-        });
+    getData(keyword);
   };
-  
+
   const searchBarStyle={
     'position': 'sticky',
     'top': '20px',
