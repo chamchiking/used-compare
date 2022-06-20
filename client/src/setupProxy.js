@@ -12,6 +12,13 @@ module.exports = function (app) {
     createProxyMiddleware("/api/data", {
         target: "http://localhost:5000",
         changeOrigin: true,
-    })
+    }),
+    createProxyMiddleware("/bungaeapi", {
+      target: "https://m.bunjang.co.kr",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/bungaeapi": "",
+      }
+    }),
   );
 };
