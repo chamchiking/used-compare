@@ -8,13 +8,6 @@ module.exports = function (app) {
       pathRewrite: {
         "^/api": "",
       },
-    }),
-    createProxyMiddleware("/bungaeapi", {
-      target: "https://m.bunjang.co.kr",
-      changeOrigin: true,
-      pathRewrite: {
-        "^/bungaeapi": "",
-      }
-    }),
+    })
   );
 };

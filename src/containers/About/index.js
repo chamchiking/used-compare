@@ -1,7 +1,10 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of fd8338b ( 크롤링 초안)
 export default function About() {
   return (
     <>
@@ -61,4 +64,3 @@ export default function About() {
     </>
   );
 }
-
