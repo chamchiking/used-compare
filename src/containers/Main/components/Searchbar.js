@@ -1,13 +1,16 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
+import { addSearchHistory, getSearchHistory } from "../../../services/firebase";
 
 export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems }) {
   const search = ()=> {
+    addSearchHistory(keyword);
+    getSearchHistory();
     setHistories([keyword, ...histories]);
     searchNaver();
   }
-  
+
   const searchNaver = () => {
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);

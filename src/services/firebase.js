@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, addDoc, collection, getDocs } from "firebase/firestore";
+// import { getDatabase, ref, set } from "firebase/database"
 import ReactGA from "react-ga4";
 import history from "../utils/history";
 
@@ -32,4 +33,33 @@ provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 export const db = getFirestore(app);
 
+export async function sample() {
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+      first: "Ada",
+      last: "Lovelace",
+      born: 1815,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+export async function addSearchHistory(query) {
+  try {
+    const docRef = await addDoc(collection(db, "searchHistory"), {
+      query: query,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+export async function getSearchHistory(query) {
+  const querySnapshot = await getDocs(collection(db, "searchHistory"));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
+}
 export default firebase;
