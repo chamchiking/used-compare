@@ -15,7 +15,7 @@ export default function Main({ user }) {
 
   const [searchData, setSearchData] = useState([]);
   const getData = (keyword) => {
-    fetch(`api/data?keyword=${keyword}`)
+    fetch(`/api/data?keyword=${keyword}`)
       .then((res) => {
         console.log(res);
         return res.json();
@@ -51,6 +51,7 @@ export default function Main({ user }) {
             histories={histories}
             setHistories={setHistories}
             setNaverItems={setNaverItems}
+            getData={getData}
           />
         </Container>
 
