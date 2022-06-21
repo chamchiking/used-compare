@@ -3,13 +3,18 @@ import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
 export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems }) {
-  const searchNaver = () => {
+  const search = ()=> {
     setHistories([keyword, ...histories]);
+    searchNaver();
+  }
+  
+  const searchNaver = () => {
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
       console.log(data.items);
     });
   };
+
   const searchBarStyle={
     'position': 'sticky',
     'top': '20px',
@@ -29,7 +34,7 @@ export default function SearchBar({ keyword, setKeyword, histories, setHistories
             setKeyword(event.target.value);
           }}
         />
-        <Button variant="secondary" onClick={searchNaver}>
+        <Button variant="secondary" onClick={search}>
           Submit
         </Button>
         <div className="vr" />
