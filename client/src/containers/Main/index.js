@@ -15,15 +15,17 @@ export default function Main({ user }) {
 
   const [searchData, setSearchData] = useState([]);
   const getData = (keyword) => {
-    fetch(`/api/data?keyword=${keyword}`)
+    fetch(`http://localhost:5000/crawling/data?keyword=${keyword}`, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }})
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((data) => {
-        setSearchData(data);
-        console.log("data: "+searchData);
-        console.log("Done");
+        console.log(data.slice(0, 10));
+        setSearchData(data.slice(0, 10));
       });
   };
 

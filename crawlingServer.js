@@ -1,14 +1,15 @@
 const express = require("express");
+var cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 const port = process.env.PORT || 5000;
 app.listen(port);
 
-app.use("/api/data/", async function (req, res) {
+app.use("/crawling/data", async function (req, res) {
   console.log("검색 키워드: " + req.query.keyword);
   const resultList = await openBrowser(req.query.keyword);
-  console.log(resultList);
   res.json(resultList);
 });
 
@@ -43,11 +44,12 @@ async function openBrowser(keyword) {
 
 
   const searchData = await page.evaluate(() => {
-    console.log('\n--\n');
     const contentsList = Array.from(document.querySelectorAll("div.sc-cooIXK.eRiVOY"));
+    const imageList = Array.from(document.querySelectorAll("img[alt='상품 이미지']"));
+    // console.log(contentsList.length, imageList.length);
     let contentsObjList = [];
 
-    contentsList.forEach((item) => {
+    contentsList.forEach((item, i) => {
       const eachItem = Array.from(item.querySelectorAll("div"));
       var title = '';
       var price = 0;
@@ -55,6 +57,7 @@ async function openBrowser(keyword) {
       var whetherAD = false;
       
       eachItem.forEach((info) => {
+        // console.log("info:  "+info.className+"  "+info.textContent)
         if (info.className === "sc-fcdeBU iVCsji"){
           title = info.textContent;
         }else if(info.className === "sc-gmeYpB iBMbn"){
@@ -66,11 +69,13 @@ async function openBrowser(keyword) {
           }
         }
       })
-      if (!whetherAD){
+      console.log(imageList[i].src);
+      if (!whetherAD && imageList[i]){
         contentsObjList.push({
           title: title, // 타이틀
           date: date,
           price: price, // 내용
+          image: imageList[i].src
         });
       }
     });

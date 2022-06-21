@@ -129,6 +129,7 @@
     "core-js-compat": "^3.22.8",
     "core-js-pure": "^3.22.8",
     "core-util-is": "^1.0.3",
+    "cors": "^2.8.5",
     "cosmiconfig": "^7.0.1",
     "cross-spawn": "^7.0.3",
     "crypto": "^1.0.1",
@@ -266,8 +267,6 @@
     "finalhandler": "^1.2.0",
     "find-cache-dir": "^3.3.2",
     "find-up": "^5.0.0",
-    "firebase": "^9.8.3",
-    "cheerio": "^1.0.0-rc.11",
     "firebase": "^9.8.2",
     "firebaseui": "^6.0.1",
     "flat-cache": "^3.0.4",
@@ -875,7 +874,7 @@
     "zlib": "^1.0.5"
   },
   "browser": {
-      "crypto": false
+    "crypto": false
   },
   "scripts": {
     "start": "nodemon crawlingServer.js",
