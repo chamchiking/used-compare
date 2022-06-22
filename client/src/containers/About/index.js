@@ -1,10 +1,6 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of fd8338b ( 크롤링 초안)
 export default function About() {
   return (
     <>
@@ -30,14 +26,14 @@ export default function About() {
 
 
         </div>
-         <img id='about-first-img' src={require('./used-clothes.jpg')} width="500" height="500"/>
+         <img id='about-first-img' src={require('./used-clothes.jpg')} alt="aboutimage1" width="500" height="500"/>
 
       </div>
     </Container>
 
     <Container>
       <div id='about-second' class="d-flex align-items-start mt-5 mb-3  mx-5" >
-        <img id='about-second-img' src={require('./earth.jpg')} width="500" height="500" />
+        <img id='about-second-img' src={require('./earth.jpg')} alt="aboutimage2" width="500" height="500" />
 
         <div class="d-grid gap-3 text-start">
              <div class="p-3 mb-2 bg-secondary text-white text-center">

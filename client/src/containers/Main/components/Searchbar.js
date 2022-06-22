@@ -2,16 +2,26 @@ import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 
-export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
+export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
   const searchNaver = () => {
+    setHistories([keyword, ...histories]);
+
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
+      console.log(data.items);
     });
+
+    getData(keyword);
   };
 
+  const searchBarStyle={
+    'position': 'sticky',
+    'top': '20px',
+    'z-index': '1',
+  }
+
   return (
-    <Container>
-      <div>검색창</div>
+    <Container style={searchBarStyle}>
       <Stack direction="horizontal" gap={3} className="mb-3">
         <Form.Control
           className="me-auto"

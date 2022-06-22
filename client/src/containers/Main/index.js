@@ -12,24 +12,50 @@ export default function Main({ user }) {
 	const [histories, setHistories] = useState([]);
   const [naverItems, setNaverItems] = useState([]);
 
+
+  const [searchData, setSearchData] = useState([]);
+  const getData = (keyword) => {
+    fetch(`http://localhost:5000/crawling/data?keyword=${keyword}`, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }})
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data.slice(0, 10));
+        setSearchData(data.slice(0, 10));
+      });
+  };
+
+
   useEffect(() => {
     naverShoppingApi("프라다");
   }, []);
   return (
     <>
-      <Container className='no-margin-padding'>
-				<Container id='top-container' className={histories.length === 0? "top-container-home": "top-container-searched"}>
-					<Container id="title">
-						<h2>New & SecondHands</h2>
-					</Container>
-					<SearchBar
-						keyword={keyword}
-						setKeyword={setKeyword}
-						histories={histories}
-						setHistories={setHistories}
-						setNaverItems={setNaverItems}
-					/>
-				</Container>
+      <Container className="no-margin-padding">
+        <Container
+          id="top-container"
+          className={
+            histories.length === 0
+              ? "top-container-home"
+              : "top-container-searched"
+          }
+        >
+          <Container id="title">
+            <h2>New & SecondHands</h2>
+          </Container>
+          <SearchBar
+            keyword={keyword}
+            setKeyword={setKeyword}
+            histories={histories}
+            setHistories={setHistories}
+            setNaverItems={setNaverItems}
+            getData={getData}
+          />
+        </Container>
 				
 				{histories.length === 0?
 				<>
