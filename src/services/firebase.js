@@ -76,7 +76,7 @@ export async function queryForDocument(userId) {
     limit(20)
   );
   const querySnapshot = await getDocs(searchHistoryQuery);
-  const allDocs = []
+  let allDocs = []
   querySnapshot.forEach((snap) => {
     // console.log(`Document ${snap.id} contains ${JSON.stringify(snap.data())}`);
     allDocs.push(snap.data().query)

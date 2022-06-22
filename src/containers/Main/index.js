@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
-import { auth } from "../../services/firebase";
+import { auth, queryForDocument } from "../../services/firebase";
 import SearchBar from "./components/Searchbar";
 import SearchBarBackground from "./searchbar_img.png";
 import HistoryBox from "./components/HistoryBox";
@@ -14,8 +14,13 @@ export default function Main({ user }) {
   const [naverItems, setNaverItems] = useState([]);
 
   useEffect(() => {
-    naverShoppingApi("프라다");
-  }, []);
+    const fetchHistory = async ()=> {
+      const allHistories = await queryForDocument(user.uid);
+      setHistories(allHistories);
+    }
+
+    fetchHistory()
+  }, [user]);
   return (
     <>
       <Container fluid className="p-0">
