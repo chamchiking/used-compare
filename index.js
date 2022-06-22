@@ -12,6 +12,11 @@ app.use("/crawling/data", async function (req, res) {
   const resultList = await openBrowser(req.query.keyword);
   res.json(resultList);
 });
+// path 모듈 불러오기
+const path = require('path');
+
+// 리액트 정적 파일 제공
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
