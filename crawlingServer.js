@@ -23,12 +23,12 @@ const puppeteer = require("puppeteer");
  * @return {array} 검색 결과
  */
 async function openBrowser(keyword) {
-  
+  const url = `https://m.bunjang.co.kr/search/products?q=${keyword}`;
   const browser = await puppeteer.launch({ headless: true });
 
   const page = await browser.newPage();
 
-  await page.goto(`https://m.bunjang.co.kr/search/products?q=${keyword}`, {waitUntil: 'networkidle0'});
+  await page.goto(url, {waitUntil: 'networkidle0'});
   await page.content();
 
 
@@ -75,7 +75,7 @@ async function openBrowser(keyword) {
           title: title, // 타이틀
           date: date,
           price: price, // 내용
-          image: imageList[i].src
+          image: imageList[i].src,
         });
       }
     });

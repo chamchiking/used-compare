@@ -6,14 +6,15 @@ import SearchBar from "./components/Searchbar";
 import HistoryBox from "./components/HistoryBox";
 import { naverShoppingApi } from "../../services/naver/shopping";
 import DefaultCards from "./components/DefaultCards";
+import SHCards from "./components/SHCards";
 
 export default function Main({ user }) {
   const [keyword, setKeyword] = useState("");
 	const [histories, setHistories] = useState([]);
   const [naverItems, setNaverItems] = useState([]);
-
-
   const [searchData, setSearchData] = useState([]);
+
+
   const getData = (keyword) => {
     fetch(`http://localhost:5000/crawling/data?keyword=${keyword}`, {
         headers : { 
@@ -24,8 +25,9 @@ export default function Main({ user }) {
         return res.json();
       })
       .then((data) => {
-        console.log(data.slice(0, 10));
         setSearchData(data.slice(0, 10));
+        console.log(searchData);
+        console.log(keyword);
       });
   };
 
@@ -109,6 +111,16 @@ export default function Main({ user }) {
 							<h5>중고 상품</h5>
 						</Container>
 						<Container id='sh-items-box' className="items-box">
+							{searchData.map((e) => (
+								<SHCards
+									title={e.title}
+									keyword={keyword}
+									image={e.image}
+									lprice={e.price}
+									date={e.date}
+								/>
+							))
+							}
 
 						</Container>
 					</Container>
