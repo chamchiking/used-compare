@@ -36,7 +36,7 @@ export default function DefaultCards({
             <br />
             최저가: {lowestPrice} 원
           </Card.Body>
-          <Button variant="primary" className="link-button" href={link}>상품 보러가기</Button>
+          <Button variant="primary" href={link}>상품 보러가기</Button>
         </Card.Body>
       </Card>
     </>
