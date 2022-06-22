@@ -46,7 +46,7 @@ export default function Main({ user }) {
       <Container fluid className="p-0">
         <div
           fluid
-          className="p-0 mb-4"
+          className="p-0 mb-4 py-5 fs-1 text-white"
           style={{
             backgroundImage: `url(${SearchBarBackground})`,
             height: "200px",
