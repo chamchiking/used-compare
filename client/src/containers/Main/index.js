@@ -17,7 +17,7 @@ export default function Main({ user }) {
 
 
   const getData = (keyword) => {
-    fetch(`http://localhost:3001/crawling/data?keyword=${keyword}`, {
+    fetch(`https://used-compare.herokuapp.com/crawling/data?keyword=${keyword}`, {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
