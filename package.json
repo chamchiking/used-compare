@@ -882,7 +882,7 @@
     "dev:server": "npm start",
     "dev:client": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
   },
   "repository": {
     "type": "git",
