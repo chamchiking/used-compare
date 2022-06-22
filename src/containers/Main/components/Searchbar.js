@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
-import { addSearchHistory, getSearchHistory, queryForDocument } from "../../../services/firebase";
+import { addSearchHistory, queryForDocument } from "../../../services/firebase";
 
 export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems }) {
   const search = async ()=> {
