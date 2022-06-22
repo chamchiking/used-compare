@@ -7,11 +7,31 @@ import SearchBarBackground from "./searchbar_img.png";
 import HistoryBox from "./components/HistoryBox";
 import { naverShoppingApi } from "../../services/naver/shopping";
 import DefaultCards from "./components/DefaultCards";
+import SHCards from "./components/SHCards";
 
 export default function Main({ user }) {
   const [keyword, setKeyword] = useState("");
   const [histories, setHistories] = useState([]);
   const [naverItems, setNaverItems] = useState([]);
+  const [searchData, setSearchData] = useState([]);
+
+
+  const getData = (keyword) => {
+    fetch(`http://localhost:5000/crawling/data?keyword=${keyword}`, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }})
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setSearchData(data.slice(0, 10));
+        console.log(searchData);
+        console.log(keyword);
+      });
+  };
+
 
   useEffect(() => {
     const fetchHistory = async ()=> {
@@ -41,6 +61,7 @@ export default function Main({ user }) {
           histories={histories}
           setHistories={setHistories}
           setNaverItems={setNaverItems}
+          getData={getData}
         />
         <Container>
           <Row>
@@ -72,24 +93,16 @@ export default function Main({ user }) {
             </Col>
             <Col>
               <Container>
-                {naverItems.map((e) => (
-                  <DefaultCards
-                    brand={e.brand}
+                {searchData.map((e) => (
+                  <SHCards
                     title={e.title}
-                    link={e.link}
+                    keyword={keyword}
                     image={e.image}
-                    hprice={e.hprice}
-                    lprice={e.lprice}
-                    category1={e.category1}
-                    category2={e.category2}
-                    category3={e.category3}
-                    category4={e.category4}
-                    marker={e.marker}
-                    mallName={e.mallName}
-                    productId={e.productId}
-                    productType={e.productType}
+                    lprice={e.price}
+                    date={e.date}
                   />
-                ))}
+                ))
+                }
               </Container>
             </Col>
           </Row>

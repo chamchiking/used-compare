@@ -7,12 +7,12 @@ export default function HistoryBox({ histories }) {
   const HistoryList = ({histories}) => {
       return <>
           {histories.map(
-            his => <AHistory his={his}/>
+            his => <AHistory his={his} key={Math.floor(Math.random()*10000000)}/>
           )}
         </>;
   }
   const AHistory = ({his}) => {
-      return <div class='one-his' >
+      return <div className='one-his'>
           <div>{his}</div>  
       </div>;
   }

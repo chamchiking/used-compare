@@ -1,17 +1,32 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
+import { addSearchHistory, queryForDocument } from "../../../services/firebase";
 
-export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
+export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
+  const search = async ()=> {
+    getData(keyword);
+    addSearchHistory(keyword, user.uid);
+    const allDocs = await queryForDocument(user.uid);
+    setHistories(allDocs);
+    searchNaver();
+  }
+
   const searchNaver = () => {
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
+      console.log(data.items);
     });
   };
 
+  const searchBarStyle={
+    'position': 'sticky',
+    'top': '20px',
+    'z-index': '1',
+  }
+
   return (
-    <Container>
-      <div>검색창</div>
+    <Container style={searchBarStyle}>
       <Stack direction="horizontal" gap={3} className="mb-3">
         <Form.Control
           className="me-auto"
@@ -23,7 +38,7 @@ export default function SearchBar({ keyword, setKeyword, setNaverItems }) {
             setKeyword(event.target.value);
           }}
         />
-        <Button variant="secondary" onClick={searchNaver}>
+        <Button variant="secondary" onClick={search}>
           Submit
         </Button>
         <div className="vr" />

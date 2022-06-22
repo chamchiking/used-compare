@@ -17,6 +17,7 @@ export default function DefaultCards({
   mallName,
   productId,
   productType,
+  date,
 }) {
   const lowestPrice = numberWithCommas(lprice)
   const mallStyle={
