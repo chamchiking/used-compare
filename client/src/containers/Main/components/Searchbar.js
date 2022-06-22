@@ -1,17 +1,22 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
+import { addSearchHistory, getSearchHistory, queryForDocument } from "../../../services/firebase";
 
-export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
+export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
+  const search = async ()=> {
+    getData(keyword);
+    addSearchHistory(keyword, user.uid);
+    const allDocs = await queryForDocument(user.uid);
+    setHistories(allDocs);
+    searchNaver();
+  }
+
   const searchNaver = () => {
-    setHistories([keyword, ...histories]);
-
     naverShoppingApi(keyword).then((data)=> {
       setNaverItems(data.items);
       console.log(data.items);
     });
-
-    getData(keyword);
   };
 
   const searchBarStyle={
@@ -33,7 +38,7 @@ export default function SearchBar({ keyword, setKeyword, histories, setHistories
             setKeyword(event.target.value);
           }}
         />
-        <Button variant="secondary" onClick={searchNaver}>
+        <Button variant="secondary" onClick={search}>
           Submit
         </Button>
         <div className="vr" />
