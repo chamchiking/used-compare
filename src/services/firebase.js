@@ -1,7 +1,17 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { getFirestore, addDoc, collection, getDocs } from "firebase/firestore";
-// import { getDatabase, ref, set } from "firebase/database"
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  limit,
+  onSnapshot,
+  Timestamp,
+  orderBy
+} from "firebase/firestore";
 import ReactGA from "react-ga4";
 import history from "../utils/history";
 
@@ -45,15 +55,39 @@ export async function sample() {
     console.error("Error adding document: ", e);
   }
 }
-export async function addSearchHistory(query) {
+export async function addSearchHistory(query, userId) {
   try {
     const docRef = await addDoc(collection(db, "searchHistory"), {
+      userId: userId,
       query: query,
+      createdAt: Timestamp.now(),
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+}
+
+export async function queryForDocument(userId) {
+  const searchHistoryQuery = query(
+    collection(db, "searchHistory"),
+    where("userId", "==", userId),
+    orderBy("createdAt", "desc"),
+    limit(20)
+  );
+  const querySnapshot = await getDocs(searchHistoryQuery);
+  const allDocs = []
+  querySnapshot.forEach((snap) => {
+    // console.log(`Document ${snap.id} contains ${JSON.stringify(snap.data())}`);
+    allDocs.push(snap.data().query)
+  });
+  return allDocs;
+  // let unsubscribeSearchHistory = onSnapshot(
+  //   searchHistoryQuery,
+  //   (querySnapshot) => {
+  //     console.log(JSON.stringify(querySnapshot.docs.map((e)=> e.data())))
+  //   }
+  // )
 }
 
 export async function getSearchHistory(query) {

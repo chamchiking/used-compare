@@ -1,13 +1,13 @@
 import React from "react";
 import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
-import { addSearchHistory, getSearchHistory } from "../../../services/firebase";
+import { addSearchHistory, getSearchHistory, queryForDocument } from "../../../services/firebase";
 
-export default function SearchBar({ keyword, setKeyword, histories, setHistories, setNaverItems }) {
-  const search = ()=> {
-    addSearchHistory(keyword);
-    getSearchHistory();
-    setHistories([keyword, ...histories]);
+export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems }) {
+  const search = async ()=> {
+    addSearchHistory(keyword, user.uid);
+    const allDocs = await queryForDocument(user.uid);
+    setHistories(allDocs);
     searchNaver();
   }
 

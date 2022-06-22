@@ -27,9 +27,10 @@ export default function Main({ user }) {
             height: "200px",
           }}
         >
-          위에 칸
+          New & Second hands
         </div>
         <SearchBar
+          user={user}
           keyword={keyword}
           setKeyword={setKeyword}
           histories={histories}
@@ -65,7 +66,7 @@ export default function Main({ user }) {
               </Container>
             </Col>
             <Col>
-            <Container>
+              <Container>
                 {naverItems.map((e) => (
                   <DefaultCards
                     brand={e.brand}
