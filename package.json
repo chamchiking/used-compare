@@ -881,7 +881,8 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "npm start",
     "dev:client": "cd client && npm start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -893,5 +894,8 @@
   "bugs": {
     "url": "https://github.com/chamchiking/used-compare/issues"
   },
-  "homepage": "https://github.com/chamchiking/used-compare#readme"
+  "homepage": "https://github.com/chamchiking/used-compare",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }

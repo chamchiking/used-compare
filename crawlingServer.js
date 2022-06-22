@@ -4,7 +4,7 @@ var cors = require('cors');
 const app = express();
 
 app.use(cors());
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 app.listen(port);
 
 app.use("/crawling/data", async function (req, res) {
@@ -12,6 +12,9 @@ app.use("/crawling/data", async function (req, res) {
   const resultList = await openBrowser(req.query.keyword);
   res.json(resultList);
 });
+app.get('*', (req, res)=> {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+})
 
 console.log(`************* server running at http ${port}`);
 const puppeteer = require("puppeteer");
@@ -24,7 +27,14 @@ const puppeteer = require("puppeteer");
  */
 async function openBrowser(keyword) {
   const url = `https://m.bunjang.co.kr/search/products?q=${keyword}`;
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--window-size=1600, 2000",
+    ]
+  });
 
   const page = await browser.newPage();
 
