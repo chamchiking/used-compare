@@ -27,7 +27,7 @@ export default function SHCards({
             <br />
             최저가: {lowestPrice} 원
           </Card.Body>
-          <Button variant="primary" href={`https://m.bunjang.co.kr/search/products?q=${keyword}`}>상품 보러가기</Button>
+          <Button variant="primary" className="link-button" href={`https://m.bunjang.co.kr/search/products?q=${keyword}`}>상품 보러가기</Button>
         </Card.Body>
       </Card>
     </>
