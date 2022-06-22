@@ -14,8 +14,13 @@
     padding:50px;
     padding-top: 150px;
     margin-top: 10%;
+    margin-bottom: 5%;
 }
-
+.link-button{
+    border: white solid 1px;
+    background-image: url("button_img.png");
+    background-repeat: repeat;
+}
 #main-about{
     display: flex;
     flex-direction: row;
@@ -35,9 +40,12 @@
     padding-left: 5%;
     width:90%;
 }
-#main_bottom_img{
-    width: 30%;
-
+#main-about-bottom{
+    font-size: 40px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    padding-left: 5%;
 }
 
 #boxes{
@@ -86,6 +94,6 @@ h2{
 
 .item-card{
     display: inline-block;
-    border: 2px solid rgb(248, 248, 248);
+    border: 1px solid rgb(230, 235, 235);
     width: 250px;
 }

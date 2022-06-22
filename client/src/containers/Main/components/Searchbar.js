@@ -3,8 +3,9 @@ import { Stack, Form, Button, Container } from "react-bootstrap";
 import { naverShoppingApi } from "../../../services/naver/shopping";
 import { addSearchHistory, queryForDocument } from "../../../services/firebase";
 
-export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems, getData}) {
+export default function SearchBar({ user, keyword, setKeyword, histories, setHistories, setNaverItems, getData, setIsItHome}) {
   const search = async ()=> {
+    setIsItHome(false);
     getData(keyword);
     addSearchHistory(keyword, user.uid);
     const allDocs = await queryForDocument(user.uid);
