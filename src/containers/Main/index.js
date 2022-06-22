@@ -19,7 +19,7 @@ export default function Main({ user }) {
       setHistories(allHistories);
     }
 
-    fetchHistory()
+    fetchHistory();
   }, [user]);
   return (
     <>

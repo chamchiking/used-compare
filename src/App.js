@@ -24,7 +24,7 @@ function App() {
     <SSRProvider>
       <div className="App">
         <Router>
-          <MainNavbar user={user} />
+          <MainNavbar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<Main user={user} />} />
             <Route path="/about" element={<About user={user} />} />

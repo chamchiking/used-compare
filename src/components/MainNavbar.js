@@ -3,7 +3,7 @@ import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Login from './Login';
 
-export default function MainNavbar({user}) {
+export default function MainNavbar({user, setUser}) {
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -29,6 +29,7 @@ export default function MainNavbar({user}) {
             </Nav>
             <Login
               user={user}
+              setUser={setUser}
             />
           </Navbar.Collapse>
         </Container>

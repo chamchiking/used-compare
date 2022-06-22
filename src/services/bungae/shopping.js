@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as cheerio from 'cheerio';
+// import * as cheerio from 'cheerio';
 // import * as puppeteer from "puppeteer";
 
 function getBungaeConfig(sendCookies = false) {
