@@ -7,6 +7,24 @@ app.use(cors());
 const port = process.env.PORT || 3001;
 app.listen(port);
 
+app.use("/naver", async function (req, res) {
+  var api_url = 'https://openapi.naver.com/v1/search/shop.json?query=' + encodeURI(req.query.query); // json 결과
+   var request = require('request');
+   var options = {
+       url: api_url,
+       headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
+    };
+   request.get(options, function (error, response, body) {
+     if (!error && response.statusCode == 200) {
+       res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+       res.end(body);
+     } else {
+       res.status(response.statusCode).end();
+       console.log('error = ' + response.statusCode);
+     }
+   });
+})
+
 app.use("/crawling/data", async function (req, res) {
   console.log("검색 키워드: " + req.query.keyword);
   const resultList = await openBrowser(req.query.keyword);
